@@ -308,6 +308,8 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
 
 Пример того, как может выглядеть структура вашего проекта, представлен на изображении ниже:
 
+![4668](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/7664876.png)
+![873](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/6907544.png)
 
 Добавьте импорты тот же класс:
 
