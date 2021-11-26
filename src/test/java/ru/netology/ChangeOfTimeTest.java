@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import org.junit.jupiter.api.extension.ExtendWith;
-import ru.netology.util.ScreenShooterReportPortalExtension;
+import util.ScreenShooterReportPortalExtension;
 
 import java.time.Duration;
 
