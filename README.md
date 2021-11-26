@@ -66,6 +66,10 @@ sysctl -w vm.max_map_count=262144`
 
 Должна открыться следующая страница:
 
+![785](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2013.51.43.1.png)
+
+
+
 Если этого не произошло, то введите URL: http://localhost:8080
 
 Введите логин: superadmin. Введите пароль: erebus
@@ -73,6 +77,8 @@ sysctl -w vm.max_map_count=262144`
 Примечание: В последующим рекомендуется заменить пароль для обеспечения безопасности.
 
 Нажмите на кнопку Login, вид страницы представлен на скриншоте:
+
+![457](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2015.16.59.2.png)
 
 ### **3-й этап (интеграция с тестовым фреймворком)**
 
@@ -83,7 +89,6 @@ sysctl -w vm.max_map_count=262144`
 Примечание: В данном руководстве представлена интеграция ReportPortal в готовый проект. Кроме того, данное руководство по интеграции значительно отличается от инструкции разработчиков.
 
 В папке resources создайте директорий:  /META-INF/services
-
 
 Добавьте в этот директорий файл с названием: org.junit.jupiter.api.extension.Extension.
 Этот файл должен содержать всего одну строку:
@@ -206,15 +211,25 @@ public class LoggingUtils {
 
 Перейдите в браузер со страницей ReportPortal. Нажмите в списке опций Administrate.
 
+![89](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2018.02.17.rhhj.png)
+
 Нажмите Add New Project.
 
+![532](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2018.05.42.turu.png)
+
 Дайте название проекту, например, ReportPortal.
+
+![44](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2016.13.13.grg.png)
 
 Оставьте настройки по умолчанию и нажмите Submit.
 
 Далее снова нажмите на иконку и выберите Profile.
 
+![67](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2018.29.58.u6i.png)
+
 Далее в папке resources создайте файл с названием reportportal.properties и скопируйте в него содержание блока CONFIGURATION EXAMPLES (Java).
+
+![34](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-25%2018.44.48.hjrt.png)
 
 **Включение расширения ReportPortal в тесты**
 
@@ -288,9 +303,21 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
 ```
 
 Теперь перейдите в класс, в котором непосредственно находятся ваши тесты, и перед публичным классом укажите аннотацию, которая позволит сделать тест отслеживаемым ReportPortal при помощи ранее созданного класса ScreenShooterReportPortalExtension.java:
+
 `@ExtendWith({ScreenShooterReportPortalExtension.class})`
+
+Пример того, как может выглядеть структура вашего проекта, представлен на изображении ниже:
+
 
 Добавьте импорты тот же класс:
 
 `import org.junit.jupiter.api.extension.ExtendWith;
 import ru.netology.util.ScreenShooterReportPortalExtension;`
+
+Теперь запустите ваши тесты и перейдите в сервис ReportPortal.
+
+Нажмите launches на левой боковой панеле. Результаты ваших тестов теперь отображаются в системе ReportPortal. Поздравляем! 
+
+![44](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-26%2021.28.59.1.png)
+
+![45](https://github.com/Dmitruzd21/ReportPortal/blob/master/photoReportPortal/Report%20Portal%20-%20Google%20Chrome%202021-11-26%2021.31.53.2.png)
