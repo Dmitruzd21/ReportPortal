@@ -1,4 +1,4 @@
-package ru.netology.util;
+package util;
 
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.ex.UIAssertionError;

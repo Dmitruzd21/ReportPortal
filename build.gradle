@@ -2,10 +2,10 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'ru.netology'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 // кодировка файлов (если используете русский язык в файлах)
 compileJava.options.encoding = "UTF-8"
@@ -13,17 +13,30 @@ compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     jcenter()
+    mavenLocal()
     mavenCentral()
+    maven { url "http://dl.bintray.com/epam/reportportal" }
+
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'com.codeborne:selenide:5.24.4'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testCompile 'com.epam.reportportal:agent-java-junit5:5.1.0'
+    implementation 'com.epam.reportportal:agent-java-junit5:5.0.0'
+    implementation 'com.epam.reportportal:logger-java-logback:5.0.2'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'com.epam.reportportal:logger-java-log4j:5.0.2'
+    compileOnly 'log4j:log4j:1.2.17'
+    implementation 'org.apache.logging.log4j:log4j-api:2.13.3'
+    implementation 'org.apache.logging.log4j:log4j-core:2.13.3'
 }
 
 test {
+    testLogging.showStandardStreams = true
     useJUnitPlatform()
     // в тестах, вызывая `gradlew test -Dselenide.headless=true` будем передавать этот параметр в JVM (где его подтянет Selenide)
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 }
